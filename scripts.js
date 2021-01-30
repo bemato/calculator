@@ -22,18 +22,16 @@ function divide(num1, num2){
 function operate(operator, num1, num2){
     switch (operator){
         case '+':
-            add(num1, num2);
-            break;
+            return add(num1, num2);    
         case '-':
-            subtract(num1, num2);
-            break;
-        case '*':
-            multiply(num1, num2);
-            break;
+            return subtract(num1, num2);
+         
+        case 'x':
+            return multiply(num1, num2);
+       
         case '/':
-            divide(num1, num2);
-            break;
-    }
+            return divide(num1, num2);
+   }
 }
 
 //this function clears the display text
@@ -46,10 +44,12 @@ function clear(){
 let displayText = '';   //The text that will be displayed
 let operator = '+';  //The operator to use for the calculation.
 let runningTotal = 0;   //The running total.
+let num1 = 0;
 
 const digits = document.querySelectorAll(".btns .num");
 const display = document.querySelector('.display p');
-const operatorButtons = document.querySelectorAll('.btns .op')
+const operatorButtons = document.querySelectorAll('.btns .op');
+const equals = document.querySelector('#equals');
 
 //add event listener to each number that onclick changes the display text
 digits.forEach(element => element.addEventListener('click', function(){
@@ -61,10 +61,21 @@ digits.forEach(element => element.addEventListener('click', function(){
 
 //add event listener to each operator that operates the math on the numbers.
 operatorButtons.forEach(element => element.addEventListener('click', function(){
-    runningTotal = parseInt(displayText);
+    
+    num1 = parseInt(displayText);
     operator = element.textContent;
+    
+    display.textContent = runningTotal;
     clear();
 }));
+
+//add event listener to equals button and run operate().
+equals.addEventListener('click', function(){
+    runningTotal = operate(operator, num1, parseInt(displayText));
+    display.textContent = runningTotal;
+});
+
+
 
 
 
