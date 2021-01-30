@@ -38,6 +38,7 @@ h2{
 
 .display {
     text-align: right;
+    border-bottom: 3px solid rgb(0, 0, 0);
     box-shadow: 1px 5px 14px 6px rgba(0,0,0,0.4);
     padding: 25px;
     background: #c31432;  /* fallback for old browsers */
@@ -56,18 +57,29 @@ button {
     padding: 30px;
     margin: 2px 0px;
     box-shadow: 1px 2px 6px 3px rgba(0,0,0,0.4);
-    border: 3px solid black;
+    border: 1.5px solid black;
     font-size: x-large;
     background-color: #df1a3b;
     background: linear-gradient(to right, #d88090, #d33c55); 
-    border: 0px;
     color: white;
     font-family: 'Nunito', sans-serif;
     text-shadow: 0px 2px 1px #000000;
+    cursor: pointer;
+}
+
+button:hover{
+    border: 1.5px solid rgb(201, 2, 2);
+}
+
+button:active{
+    background-color: #aa0621;
+    border: 1.5px solid rgb(0, 0, 0);
+    background: linear-gradient(to right, #eb1c42, #b30421); 
+    color: red;
 }
 
 #equals{
-    padding-right: 163px;
+    padding-right: 156px;
 }
 
 footer{
